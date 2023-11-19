@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from flask import Blueprint, render_template, jsonify, request
 
 views = Blueprint(__name__, "views")
@@ -31,3 +32,5 @@ def get_json():
 def get_data():
     data = request.json
     return jsonify(data)
+=======
+>>>>>>> parent of 571aaad (Completely implemented Python Flask)
