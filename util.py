@@ -1,10 +1,25 @@
+import json
+
 class ExpenseTracker:
-    def __init__(self):
+    def __init__(self, username):
         """ constructs 
         """
         self.balance = 0
         self.expenses = []
-    
+        self.username = username
+    def save_to_the_file(self, filename):
+        user_data = {
+            'username': self.username,
+            'expenses': self.expenses,
+            'balance': self.balance
+        }
+
+        with open(filename, 'w') as file:
+            json.dump(user_data, file)
+        print(f"Expense data and summary for user {self.username} saved to {filename}")
+
+
+
     def add_income(self, income):
         self.balance += income
         print(f"Income of ${income} added. Current balance: ${self.balance}")
@@ -47,7 +62,7 @@ class ExpenseTracker:
 class User:
     def __init__(self, username, password):
         self.username = username
-        # self.expense_tracker = ExpenseTracker()
+        self.expense_tracker = ExpenseTracker(username)
         self.password = password
 
     # def create(self, username, password):
@@ -63,13 +78,13 @@ class User:
     # def add_expense(self, amount, description):
     #     self.expense_tracker.add_expense(amount, description)
 
-    # def display_summary(self):
-    #     print(f"\nSummary for User {self.username}:")
-    #     self.expense_tracker.display_summary()
+    def display_summary(self):
+        print(f"\nSummary for User {self.username}:")
+        self.expense_tracker.display_summary()
 
-    # def display_average_income(self):
-    #     avg_income = self.expense_tracker.average_income()
-    #     print(f"Average Income for User {self.username}: ${avg_income}")
+    def display_average_income(self):
+        avg_income = self.expense_tracker.average_income()
+        print(f"Average Income for User {self.username}: ${avg_income}")
     
     def __eq__(self, other):
         if self.username == other.username and self.password == other.password:
@@ -97,10 +112,11 @@ class User:
             json.dump(user_data, file)
 
     # @classmethod
-    # def load_from_file(cls, filename):
-    #     with open(filename, 'r') as file:
-    #         user_data = json.load(file)
+    def load_from_file(filename):
+        with open(filename, 'r') as file:
+            user_data = json.load(file)
 
-    #     loaded_user = cls(user_data['username'], user_data['password'])
-    #     loaded_user.expense_tracker.load_data(user_data['expense_tracker'])
-    #     return loaded_user
+        loaded_user = user_data['username'], user_data['password'], user_data['expense_tracker']
+        # print(loaded_user)
+        # loaded_user.expense_tracker.load_data(user_data['expense_tracker'])
+        return loaded_user

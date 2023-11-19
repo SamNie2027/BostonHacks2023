@@ -45,12 +45,12 @@ import json
         
 # def create(obj, username, password):
 #     obj.username = username
-#     obj.expense_tracker = ExpenseTracker()
+#     obj.expense_tracker = 1)
 #     obj.password = password    
 
 def create(username, password):
     user = User(username, password)
-    expense_tracker = ExpenseTracker()
+    expense_tracker = ExpenseTracker(username)
     return user, expense_tracker
 
 #def save_to_file(user, tracker, filename):
@@ -72,24 +72,25 @@ def main():
 
     while True:
         user_choice = input("Do you want to (1) Sign Up or (2) Log In: ")
-
+        # print(user_choice == "1")
         if user_choice == "1":
-            def sign_up():
-                username = input("Enter your username: ")
-                password = input("Enter your password: ")
-                new_user = create(username, password)
-                new_user.save_to_file('user_data.json')
-                print("Sign Up Successful!")
+            # def sign_up():
+            username = input("Enter your username: ")
+            password = input("Enter your password: ")
+            # new_user = create(username, password)
+            new_user, tracker = create(username, password)
+            new_user.save_to_file('user_data.json')
+            print("Sign Up Successful!")
 
 
             # Create a new user and save to a file
             # new_user = User(username, password)
-            new_user, tracker = create(username, password)
+      
             # tracker = ExpenseTracker()
-            print(new_user.username)
-            new_user.save_to_file(new_user, tracker, 'user_data.json') #The method in User.py and util.py take two arguments but this is passing in 3
+            # print(1
+            # .username)
+            # new_user.save_to_file(new_user, tracker, 'user_data.json') #The method in User.py and util.py take two arguments but this is passing in 3
 
-            print("Sign Up Successful!")
             break
 
         elif user_choice == "2":
@@ -100,10 +101,11 @@ def main():
             # Load user data from file and attempt login
             try:
                 existing_user = User.load_from_file('user_data.json')
-                if existing_user.login(entered_username, entered_password):
+                user = User(entered_username, entered_password)
+                if user.login(entered_username, entered_password):
                     # Perform actions after successful login if needed
-                    existing_user.display_summary()
-                    existing_user.display_average_income()
+                    user.display_summary()
+                    # user.display_average_income()
                     break
             except FileNotFoundError:
                 print("No user data found. Please sign up first.")
@@ -126,6 +128,8 @@ def main():
         choice = int(input("\nEnter choice: "))
         
         if choice == 1:
+            tracker = ExpenseTracker(entered_username)
+            user
             income = float(input("Enter income: "))
             tracker.add_income(income)
         elif choice == 2:
@@ -139,6 +143,7 @@ def main():
             print("-" * 30)
         elif choice == 4:
             print("Exiting Expense Tracker.")
+            tracker.save_to_the_file("./user_data.json")
             break
         else:
             print("Invalid Choice.")
