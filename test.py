@@ -74,13 +74,9 @@ def main():
         user_choice = input("Do you want to (1) Sign Up or (2) Log In: ")
 
         if user_choice == "1":
-            def sign_up():
-                username = input("Enter your username: ")
-                password = input("Enter your password: ")
-                new_user = create(username, password)
-                new_user.save_to_file('user_data.json')
-                print("Sign Up Successful!")
-
+            # Sign Up
+            username = input("Enter your username: ")
+            password = input("Enter your password: ")
 
             # Create a new user and save to a file
             # new_user = User(username, password)
