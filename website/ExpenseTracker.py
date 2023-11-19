@@ -66,58 +66,6 @@ def create(username, password):
 
 
 def main():
-
-    print("Welcome!")
-    # user = User()
-
-    while True:
-        user_choice = input("Do you want to (1) Sign Up or (2) Log In: ")
-        # print(user_choice == "1")
-        if user_choice == "1":
-            # def sign_up():
-            username = input("Enter your username: ")
-            password = input("Enter your password: ")
-            # new_user = create(username, password)
-            new_user, tracker = create(username, password)
-            new_user.save_to_file('user_data.json')
-            print("Sign Up Successful!")
-
-
-            # Create a new user and save to a file
-            # new_user = User(username, password)
-      
-            # tracker = ExpenseTracker()
-            # print(1
-            # .username)
-            # new_user.save_to_file(new_user, tracker, 'user_data.json') #The method in User.py and util.py take two arguments but this is passing in 3
-
-            break
-
-        elif user_choice == "2":
-            # Log In
-            entered_username = input("Enter your username: ")
-            entered_password = input("Enter your password: ")
-
-            # Load user data from file and attempt login
-            try:
-                existing_user = User.load_from_file('user_data.json')
-                user = User(entered_username, entered_password)
-                if user.login(entered_username, entered_password):
-                    # Perform actions after successful login if needed
-                    user.display_summary()
-                    # user.display_average_income()
-                    break
-            except FileNotFoundError:
-                print("No user data found. Please sign up first.")
-                break
-
-        else:
-            print("Invalid choice. Please enter 1 or 2.")
-    
-    
-    
-
-
     while True:
         print("\nExpense Tracker Menu:")
         print("1. Add Income")
@@ -147,4 +95,3 @@ def main():
             break
         else:
             print("Invalid Choice.")
-main()
