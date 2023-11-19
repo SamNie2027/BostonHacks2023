@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="inputexpensesPage.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
-<body>
-    <!--Navbar-->
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <div class="container">
-            <a href="landingPage.html" class="navbar-brand"><img src="Icon.png" width="60px">Fun Finance</a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav" id="navmenu">
-                    <li class="nav-item">
-                        <a href="inputincomePage.html" class="nav-link">Input Income</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#track" class="nav-link">Input Expenses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="monthlysummaryPage.html" class="nav-link">Summary</a>
-                    </li>
-                </ul>
+    <head>
+        <title> Monthly Summary</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="monthlysummaryPage.css">
+    </head> 
+    <body>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="container">
+                <a href="landingPage.html" class="navbar-brand"><img src="Icon.png" width="60px">Fun Finance</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav" id="navmenu">
+                        <li class="nav-item">
+                            <a href="inputincomePage.html" class="nav-link">Input Income</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="inputexpensesPage.html" class="nav-link">Input Expenses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="monthlysummaryPage.html" class="nav-link">Summary</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+        <section class="bg-dark text-light py-5 text-center flex-nowrap ">
+            <div class="container">
+                <div>
+                    <div class="d-sm-flex">
+                    <h1>Your Expenses</h1>
+                    </div>
+                </div>
+        </section>
 
-    <!--Input Purchases-->
-    <section class="p-5 customBackground text-light">
-        <div class="d-flex flex-center"><img src="CongratulationsIcon.png" style="margin-right: 5%">
-            <div><h1>Time to input your well-earned income!</h1>
-                <p style="margin-top: 5%">Great job for your hard work!</p>
-                <p style="margin-top: 10%"><label for="incomeInput" id="incomeInput-label">How much money did you make?</label></p>
-                <p><input id="incomeInput" type="number" placeholder=" Income in USD" required/></p>
-                </div></div>
-        
-    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </body>
+
 </html>
