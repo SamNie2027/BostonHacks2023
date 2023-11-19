@@ -64,6 +64,7 @@ class User:
         self.username = username
         self.expense_tracker = ExpenseTracker(username)
         self.password = password
+        
 
     # def create(self, username, password):
         # self.username = username
@@ -101,22 +102,30 @@ class User:
             print("Your Username or Password is Incorrect. Try Again.")
             return False
 
-    def save_to_file(self, filename):
+    def save_to_file(self, filename='user_data.json'):
         user_data = {
-            'username': self.username,
-            'password': self.password,
-            'expense_tracker': self.expense_tracker.get_data()  # Assuming ExpenseTracker has a method to get its data
-        }
+        'username': self.username,
+        'password': self.password,
+        'expense_tracker': self.expense_tracker.get_data()
+    }
 
         with open(filename, 'w') as file:
             json.dump(user_data, file)
+        print(f"User data for {self.username} saved to {filename}")
 
+  
     # @classmethod
-    def load_from_file(filename):
+    @classmethod
+    @classmethod
+    def load_from_file(cls, filename='user_data.json'):
         with open(filename, 'r') as file:
             user_data = json.load(file)
 
-        loaded_user = user_data['username'], user_data['password'], user_data['expense_tracker']
-        # print(loaded_user)
-        # loaded_user.expense_tracker.load_data(user_data['expense_tracker'])
-        return loaded_user
+        if 'username' in user_data and 'password' in user_data and 'expense_tracker' in user_data:
+            loaded_user = cls(user_data['username'], user_data['password'])
+            loaded_user.expense_tracker.expenses = user_data['expense_tracker']['expenses']
+            loaded_user.expense_tracker.balance = user_data['expense_tracker']['balance']
+            return loaded_user
+        else:
+            raise ValueError("Invalid user data format in the file.")
+

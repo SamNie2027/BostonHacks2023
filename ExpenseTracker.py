@@ -48,10 +48,12 @@ import json
 #     obj.expense_tracker = 1)
 #     obj.password = password    
 
-def create(username, password):
+def create(username, password, filename='user_data.json'):
     user = User(username, password)
     expense_tracker = ExpenseTracker(username)
+    user.save_to_file(filename)
     return user, expense_tracker
+
 
 #def save_to_file(user, tracker, filename):
     user_data = {
@@ -69,7 +71,7 @@ def main():
 
     print("Welcome!")
     # user = User()
-
+    entered_username = None 
     while True:
         user_choice = input("Do you want to (1) Sign Up or (2) Log In: ")
         # print(user_choice == "1")
@@ -97,19 +99,27 @@ def main():
             # Log In
             entered_username = input("Enter your username: ")
             entered_password = input("Enter your password: ")
-
-            # Load user data from file and attempt login
             try:
                 existing_user = User.load_from_file('user_data.json')
-                user = User(entered_username, entered_password)
-                if user.login(entered_username, entered_password):
-                    # Perform actions after successful login if needed
-                    user.display_summary()
-                    # user.display_average_income()
-                    break
+                if existing_user.login(entered_username, entered_password):
+        # Perform actions after successful login if needed
+                    existing_user.display_summary()
+                break  # Add this line to exit the loop after successful login
             except FileNotFoundError:
                 print("No user data found. Please sign up first.")
-                break
+            break
+            # Load user data from file and attempt login
+            #try:
+                #existing_user = User.load_from_file('user_data.json')
+                #user = User(entered_username, entered_password)
+                #if user.login(entered_username, entered_password):
+                    # Perform actions after successful login if needed
+                    #user.display_summary()
+                    # user.display_average_income()
+                   # break
+            #except FileNotFoundError:
+                #print("No user data found. Please sign up first.")
+                #break
 
         else:
             print("Invalid choice. Please enter 1 or 2.")
@@ -129,7 +139,7 @@ def main():
         
         if choice == 1:
             tracker = ExpenseTracker(entered_username)
-            user
+            new_user
             income = float(input("Enter income: "))
             tracker.add_income(income)
         elif choice == 2:
