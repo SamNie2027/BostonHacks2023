@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, jsonify
+from flask import Blueprint, render_template, jsonify, request
 
 views = Blueprint(__name__, "views")
 
@@ -6,9 +6,14 @@ views = Blueprint(__name__, "views")
 def home():
     return render_template("landingPage.html")
 
-@views.route("/input-income")
+@views.route("/input-income", method=['POST'])
 def income():
     return render_template("inputincomePage.html")
+def getUserPass():
+    usernameLogin = request.form['usernameLogin']
+    passwordLogin = request.form['passwordLogin']
+    usernameSignup = request.form['usernameSignup']
+    passwordSignup = request.form['passwordSignup']
 
 @views.route("/input-expenses")
 def expenses():
