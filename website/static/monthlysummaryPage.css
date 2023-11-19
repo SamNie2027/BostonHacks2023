@@ -1,0 +1,69 @@
+.Food{
+    background-color: #F7B685;
+}
+.Bills{
+    background-color: #F3EBA5;
+}
+.Services{
+    background-color: #9BD6D9;
+}
+
+.Donations{
+    background-color: #94C691;
+}
+
+.Products{
+    background-color: #B4A8E0;
+}
+
+.Charges{
+    background-color: #Ed8e89;
+}
+
+.Total{
+    background-color: #ece7e7;
+}
+
+.pieB {
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(#f3e34f 0% 16%, #F3EBA5 16% 96%);
+    border-radius: 50%
+  }
+  .pieC {
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(#Ed8e89 0% 16%, #eb534b 16% 32%, #Ed8e89 32% 96%);
+    border-radius: 50%
+  }
+  .pieF {
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(#F7B685 0% 32%, #f59952 32% 48%, #F7B685 48% 96%);
+    border-radius: 50%
+  }
+  .pieS {
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(#9BD6D9 0% 48%, #4acdd3 48% 64%, #9BD6D9 64% 96%);
+    border-radius: 50%
+  }
+  .pieP {
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(#B4A8E0 0% 64%, #7153e1 64% 80%, #B4A8E0 80% 96%);
+    border-radius: 50%
+  }
+  .pieD {
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(#94C691 0% 80%, #58c852 80% 96%);
+    border-radius: 50%
+  }
+
+  .pieT {
+    width: 400px;
+    height: 400px;
+    background-image: conic-gradient(#F3EBA5 0% 16%, #Ed8e89 16% 32%, #F7B685 32% 48%, #9BD6D9 48% 64%, #B4A8E0 64% 80%, #94C691 80% 96%);
+    border-radius: 50%
+  }
