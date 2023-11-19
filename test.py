@@ -50,7 +50,7 @@ import json
 
 def create(username, password):
     user = User(username, password)
-    expense_tracker = ExpenseTracker()
+    expense_tracker = ExpenseTracker(username)
     return user, expense_tracker
 
 #def save_to_file(user, tracker, filename):

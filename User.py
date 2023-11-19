@@ -10,7 +10,7 @@ from util import ExpenseTracker, User
 # x = User()
 def create(obj, username, password):
     obj.username = username
-    obj.expense_tracker = ExpenseTracker()
+    obj.expense_tracker = ExpenseTracker(username)
     obj.password = password
 
 
